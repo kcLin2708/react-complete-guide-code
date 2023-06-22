@@ -34,12 +34,12 @@ const InvestmentForm = (props) => {
     event.preventDefault();
 
     const enteredData = {
-      currentSaving: enteredCurrentSaving,
-      yearlySaving: enteredYearlySaving,
-      expectedInterest: enteredExpectedInterest,
-      investmentDuration: enteredInvestDuration,
+      "current-savings": enteredCurrentSaving,
+      "yearly-contribution": enteredYearlySaving,
+      "expected-return": enteredExpectedInterest,
+      duration: enteredInvestDuration,
     };
-    console.log(enteredData);
+    // console.log(enteredData);
     props.onSaveData(enteredData);
     setEnteredCurrentSaving(0);
     setEnteredYearlySaving(0);

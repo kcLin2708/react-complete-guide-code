@@ -2,7 +2,10 @@ import React from "react";
 import styles from "./ResultTable.module.css";
 import ResultTableList from "./ResultTableList";
 
-const ResultTable = () => {
+const ResultTable = (props) => {
+  console.log("ResultTable.js");
+  console.log(props);
+  console.log(props["results"]);
   return (
     <div>
       <table className="result">
@@ -16,7 +19,7 @@ const ResultTable = () => {
           </tr>
         </thead>
         <tbody>
-          <ResultTableList />
+          <ResultTableList items={props} />
         </tbody>
       </table>
     </div>

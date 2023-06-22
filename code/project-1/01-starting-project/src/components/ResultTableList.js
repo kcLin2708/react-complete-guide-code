@@ -1,11 +1,21 @@
 import React from "react";
 import ResultTableItem from "./ResultTableItem";
 
-const ResultTableList = () => {
+const ResultTableList = (props) => {
+  console.log("ResultTableList");
+  console.log(props.resultsList);
   return (
-    <tr>
-      <ResultTableItem />
-    </tr>
+    <>
+      {props.items["results"].map((item) => (
+        <ResultTableItem
+          key={Math.random().toString()}
+          year={item["year"]}
+          yearlyInterest={item["yearlyInterest"]}
+          savingEndOfYear={item["savingEndOfYear"]}
+          yearlyContribution={item["yearlyContribution"]}
+        />
+      ))}
+    </>
   );
 };
 
