@@ -49,39 +49,53 @@ const InvestmentForm = (props) => {
 
   return (
     <div>
-      <form className="form" onSubmit={submitHandler}>
-        <div className="input-group">
+      <form className={styles["form"]} onSubmit={submitHandler}>
+        <div className={styles["input-group"]}>
           <p>
-            <label htmlFor="current-savings">Current Savings ($)</label>
+            <label htmlFor="current-savings" className={styles["label"]}>
+              Current Savings ($)
+            </label>
             <input
               type="number"
               onChange={setCurrentSaving}
               id="current-savings"
+              className={styles["input"]}
             />
           </p>
           <p>
-            <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
+            <label htmlFor="yearly-contribution" className={styles["label"]}>
+              Yearly Savings ($)
+            </label>
             <input
               type="number"
               onChange={setYearlySaving}
               id="yearly-contribution"
+              className={styles["input"]}
             />
           </p>
         </div>
         <div className="input-group">
           <p>
-            <label htmlFor="expected-return">
+            <label htmlFor="expected-return" className={styles["label"]}>
               Expected Interest (%, per year)
             </label>
             <input
               type="number"
               onChange={setExpectedInterest}
               id="expected-return"
+              className={styles["input"]}
             />
           </p>
           <p>
-            <label htmlFor="duration">Investment Duration (years)</label>
-            <input type="number" onChange={setDuration} id="duration" />
+            <label htmlFor="duration" className={styles["label"]}>
+              Investment Duration (years)
+            </label>
+            <input
+              type="number"
+              onChange={setDuration}
+              id="duration"
+              className={styles["input"]}
+            />
           </p>
         </div>
         <p className="actions">

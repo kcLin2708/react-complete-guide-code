@@ -9,7 +9,7 @@ const ResultTable = (props) => {
   return (
     <div>
       <table className="result">
-        <thead>
+        <thead className={styles["thead"]}>
           <tr>
             <th>Year</th>
             <th>Total Savings</th>
@@ -18,7 +18,7 @@ const ResultTable = (props) => {
             <th>Invested Capital</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles["tbody"]}>
           <ResultTableList items={props} />
         </tbody>
       </table>

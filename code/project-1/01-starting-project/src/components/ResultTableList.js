@@ -11,8 +11,9 @@ const ResultTableList = (props) => {
           key={Math.random().toString()}
           year={item["year"]}
           yearlyInterest={item["yearlyInterest"]}
-          savingEndOfYear={item["savingEndOfYear"]}
+          savingEndOfYear={item["savingsEndOfYear"]}
           yearlyContribution={item["yearlyContribution"]}
+          yearlyTotalCapital={item["totalCapital"]}
         />
       ))}
     </>
