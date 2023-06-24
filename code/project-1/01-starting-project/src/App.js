@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "./assets/investment-calculator-logo.png";
-import InvestmentForm from "./components/InvestmentForm";
-import ResultTable from "./components/ResultTable";
+import Header from "./components/Header/Header";
+import InvestmentForm from "./components/UserInput/InvestmentForm";
+import ResultTable from "./components/ResultsTable/ResultTable";
 
 let emptyData = [];
 
@@ -42,16 +42,10 @@ function App() {
 
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
-
+      <Header />
       <InvestmentForm onSaveData={calculateHandler} />
-
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
-
       <ResultTable results={results} />
     </div>
   );
