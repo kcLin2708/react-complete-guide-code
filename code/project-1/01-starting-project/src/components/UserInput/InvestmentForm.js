@@ -1,33 +1,23 @@
 import React, { useState } from "react";
 import styles from "./InvestmentForm.module.css";
 
+const initiaUserInput = {
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
+};
+
 const InvestmentForm = (props) => {
   const [enteredCurrentSaving, setEnteredCurrentSaving] = useState(0);
   const [enteredYearlySaving, setEnteredYearlySaving] = useState(0);
   const [enteredExpectedInterest, setEnteredExpectedInterest] = useState(0);
   const [enteredInvestDuration, setEnteredInvestDuration] = useState(0);
 
-  const setCurrentSaving = (event) => {
-    setEnteredCurrentSaving(event.target.value);
-  };
-
-  const setYearlySaving = (event) => {
-    setEnteredYearlySaving(event.target.value);
-  };
-
-  const setExpectedInterest = (event) => {
-    setEnteredExpectedInterest(event.target.value);
-  };
-
-  const setDuration = (event) => {
-    setEnteredInvestDuration(event.target.value);
-  };
+  const [userInput, setUserInput] = useState(initiaUserInput);
 
   const resetHandler = (event) => {
-    setEnteredCurrentSaving(0);
-    setEnteredYearlySaving(0);
-    setEnteredExpectedInterest(0);
-    setEnteredInvestDuration(0);
+    setUserInput(initiaUserInput);
   };
 
   const submitHandler = (event) => {
@@ -48,7 +38,12 @@ const InvestmentForm = (props) => {
   };
   // Generic way
   const inputChangeHandler = (input, value) => {
-    console.log(input, value);
+    // console.log(input, value);
+    //... spread operator
+    // Dynamic updates state
+    setUserInput((prevInput) => {
+      return { ...prevInput, [input]: value };
+    });
   };
 
   return (
@@ -64,6 +59,7 @@ const InvestmentForm = (props) => {
               onChange={(event) =>
                 inputChangeHandler("current-savings", event.target.value)
               }
+              value={userInput["current-savings"]}
               id="current-savings"
               className={styles["input"]}
             />
@@ -77,6 +73,7 @@ const InvestmentForm = (props) => {
               onChange={(event) =>
                 inputChangeHandler("yearly-contribution", event.target.value)
               }
+              value={userInput["yearly-contribution"]}
               id="yearly-contribution"
               className={styles["input"]}
             />
@@ -92,6 +89,7 @@ const InvestmentForm = (props) => {
               onChange={(event) =>
                 inputChangeHandler("expected-return", event.target.value)
               }
+              value={userInput["expected-return"]}
               id="expected-return"
               className={styles["input"]}
             />
@@ -105,6 +103,7 @@ const InvestmentForm = (props) => {
               onChange={(event) =>
                 inputChangeHandler("duration", event.target.value)
               }
+              value={userInput["duration"]}
               id="duration"
               className={styles["input"]}
             />
