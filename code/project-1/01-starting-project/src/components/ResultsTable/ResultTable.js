@@ -1,14 +1,17 @@
 import React from "react";
 import styles from "./ResultTable.module.css";
-import ResultTableList from "./ResultTableList";
+
+const formatter = new Intl.NumberFormat("en-us", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
 const ResultTable = (props) => {
-  console.log("ResultTable.js");
-  console.log(props);
-  console.log(props["results"]);
   return (
     <div>
-      <table className="result">
+      <table className={styles.result}>
         <thead className={styles["thead"]}>
           <tr>
             <th>Year</th>
@@ -19,7 +22,26 @@ const ResultTable = (props) => {
           </tr>
         </thead>
         <tbody className={styles["tbody"]}>
-          <ResultTableList items={props} />
+          {props.data.map((yearData) => (
+            <tr key={yearData.year}>
+              <td>{yearData.year}</td>
+              <td>{formatter.format(yearData.savingsEndOfYear)}</td>
+              <td>{formatter.format(yearData.yearlyInterest)}</td>
+              <td>
+                {formatter.format(
+                  yearData.savingsEndOfYear -
+                    props.initialInvestment -
+                    yearData.yearlyContribution * yearData.year
+                )}
+              </td>
+              <td>
+                {formatter.format(
+                  props.initialInvestment +
+                    yearData.yearlyContribution * yearData.year
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
