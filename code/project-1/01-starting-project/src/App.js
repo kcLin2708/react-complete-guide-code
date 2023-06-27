@@ -3,8 +3,6 @@ import Header from "./components/Header/Header";
 import InvestmentForm from "./components/UserInput/InvestmentForm";
 import ResultTable from "./components/ResultsTable/ResultTable";
 
-let emptyData = [];
-
 function App() {
   const [userInput, setUserInput] = useState(null);
 
