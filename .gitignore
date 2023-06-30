@@ -6,6 +6,7 @@
 /node_modules
 /.pnp
 .pnp.js
+./code/01-starting-project/node_modules
 
 # testing
 /coverage
