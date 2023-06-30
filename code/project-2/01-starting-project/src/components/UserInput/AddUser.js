@@ -33,7 +33,7 @@ const AddUser = (props) => {
       return;
     }
     props.onAddUser(enteredName, enteredUserAge); // execute as a function
-    nameInputRef.current.value = "";
+    nameInputRef.current.value = ""; // get DOM element which is not react element
     ageInputRef.current.value = "";
     // setEnteredUserName("");
     // setEnteredAge("");
