@@ -10,8 +10,10 @@ const Login = (props) => {
   const [enteredPassword, setEnteredPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+
   // update react state
-  // handle side effect such as http request or listen any key stroke triggering other action (in response to other action)
+  // run only once
+  // !!!handle side effect such as http request or !!!listen any key stroke triggering other action (in response to other action)
   useEffect(() => {
     setFormIsValid(
       enteredEmail.includes("@") && enteredPassword.trim().length > 6
