@@ -11,13 +11,31 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  // it runs when comp first mounts
+  // runs afrer every comp rendre cycle, eg state changes
+  useEffect(() => {
+    console.log("EFFECT RUNNING");
+
+    return () => {
+      console.log("EFFECT CLEANUP");
+    };
+  }, [enteredPassword]);
+
   // update react state
   // run only once
   // !!!handle side effect such as http request or !!!listen any key stroke triggering other action (in response to other action)
   useEffect(() => {
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
+    const identifier = setTimeout(() => {
+      console.log("Checking form validity!");
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 500);
+
+    return () => {
+      console.log("CLEAN UP");
+      clearTimeout(identifier);
+    }; // clean up function, run before any side-effect func exexution
   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
