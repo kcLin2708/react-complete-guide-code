@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
+import AuthContext from "../../store/auth-context";
 
 // no interaction with the components inside the Login()
 const emailReducer = (state, action) => {
@@ -46,6 +47,7 @@ const Login = (props) => {
     isValid: false,
   });
 
+  const authCtx = useContext(AuthContext);
   // it runs when comp first mounts
   // runs afrer every comp rendre cycle, eg state changes
   useEffect(() => {
@@ -94,7 +96,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
