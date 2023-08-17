@@ -1,15 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 
-import classes from './DemoList.module.css';
+import classes from "./DemoList.module.css";
 
 const DemoList = (props) => {
   const { items } = props;
-
+  // useMemo is mainly for memorizing data
+  // useCallback is used for memoriing functions
   const sortedList = useMemo(() => {
-    console.log('Items sorted');
+    console.log("Items sorted");
     return items.sort((a, b) => a - b);
-  }, [items]); 
-  console.log('DemoList RUNNING');
+  }, [items]);
+  console.log("DemoList RUNNING");
 
   return (
     <div className={classes.list}>

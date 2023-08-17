@@ -4,6 +4,7 @@
 
 # dependencies
 ../code/01-starting-setup/node_modules
+../code/07-finished/node_modules
 /node_modules
 /node_modules/.cache
 /.pnp
