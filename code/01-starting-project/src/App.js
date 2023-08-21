@@ -59,16 +59,28 @@ function App() {
   }, [fetchMovieHandler]);
 
   const addMovieHandler = async (movie) => {
-    const response = await fetch(
-      "https://react-http-519b0-default-rtdb.europe-west1.firebasedatabase.app/movies.json",
-      {
-        method: "POST",
-        body: JSON.stringify(movie),
-        headers: { "Content-Type": "application-json" },
+    try {
+      const response = await fetch(
+        "https://react-http-519b0-default-rtdb.europe-west1.firebasedatabase.app/movies.json",
+        {
+          method: "POST",
+          body: JSON.stringify(movie),
+          headers: { "Content-Type": "application-json" },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+
+      if (!response.ok) {
+        throw new Error(
+          "Something went wornng with POST" +
+            " with status code: " +
+            response.status
+        );
       }
-    );
-    const data = await response.json();
-    console.log(data);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   let content = "Found no movies!";
