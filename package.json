@@ -1,0 +1,22 @@
+{
+  "name": "redux-demo",
+  "version": "1.0.0",
+  "description": "Code snapshots and materials for our \"React - The Complete Guide\" course (https://acad.link/reactjs)",
+  "main": "redux-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kcLin2708/react-complete-guide-code.git"
+  },
+  "author": "Kai-Chun Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kcLin2708/react-complete-guide-code/issues"
+  },
+  "homepage": "https://github.com/kcLin2708/react-complete-guide-code#readme",
+  "dependencies": {
+    "redux": "^4.2.1"
+  }
+}
