@@ -1,12 +1,28 @@
+import { Component } from "react";
+
 import { createStore } from "redux";
 
-const counterReuducer = (state = { counter: 0 }, action) => {
+const initialState = { counter: 0, showCounter: true };
+const counterReuducer = (state = initialState, action) => {
+  // NEVER MUTATING STATE!!! state.counter++
+  // ALWAYS WRITE A NEW STATE!!!
   if (action.type === "increment") {
-    return { state: state.counter + 1 };
+    return { counter: state.counter + 1, showCounter: state.showCounter };
+  }
+
+  if (action.type === "increase") {
+    return {
+      counter: state.counter + action.amount,
+      showCounter: state.showCounter,
+    };
   }
 
   if (action.type === "decrement") {
-    return { state: state.counter - 1 };
+    return { counter: state.counter - 1, showCounter: state.showCounter };
+  }
+
+  if (action.type === "toggle") {
+    return { showCounter: !state.showCounter, counter: state.counter };
   }
 
   return state;
